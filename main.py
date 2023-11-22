@@ -1,21 +1,24 @@
 import requests
+from Pokemon import Pokemon
 
-user_poke = input("Enter the name of a Pokemon: ").lower() #ask for pokemon name
-url = "https://pokeapi.co/api/v2/pokemon/" + user_poke #use input to define appropriate URL
-poke_request = requests.get(url) #set up request
+#Ask user for a pokemon name, then use PokeAPI to create an appropriate Pokemon object
 
-poke_got = "0" #give request a placeholder value
+user_poke_name = input("Enter the name of a Pokemon: ").lower() #Ask for pokemon name
+url = "https://pokeapi.co/api/v2/pokemon/" + user_poke_name #Use input to define appropriate URL
+poke_request = requests.get(url) #Set up request
+
+poke_got = "0" #Give request a placeholder value
 while(poke_got == "0"):
 
-    try: #try to get json for that pokemon
+    try: #Try to get json for that pokemon
         poke_got = poke_request.json()
         
-    except: #if any errors occur, that pokemon probably isn't real; ask for pokemon name again (TODO: improve by catching different errors, ex. network)
+    except: #If any errors occur, that pokemon probably isn't real; ask for pokemon name again (TODO: improve by catching different errors, ex. network)
         print("That's not a real Pokemon. Not yet, anyway.")
         user_poke = input("Enter the name of a REAL Pokemon: ").lower()
         url = "https://pokeapi.co/api/v2/pokemon/" + user_poke
         poke_request = requests.get(url)
 
-poke_types = [typ["type"]["name"] for typ in poke_got["types"]]
+user_poke = Pokemon(poke_got) #Use poke_got dictionary to create Pokemon object
 
-print(poke_types)
+print(user_poke)
