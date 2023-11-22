@@ -26,6 +26,7 @@ while(poke_got == "0"):
         else:
             quit()
 
-user_poke = Pokemon(poke_got) #Use poke_got dictionary to create Pokemon object
+user_poke = Pokemon(poke_got) #Use poke_got dictionary to create a corresponding Pokemon object
 
 print(user_poke)
+
