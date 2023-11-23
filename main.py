@@ -29,4 +29,4 @@ while(poke_got == "0"):
 user_poke = Pokemon(poke_got) #Use poke_got dictionary to create a corresponding Pokemon object
 
 print(user_poke)
-
+print(user_poke.xp_stats())

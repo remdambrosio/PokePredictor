@@ -17,3 +17,6 @@ class Pokemon:
             f"Types: {', '.join(self.types)}\n"\
             f"Height: {self.height} m\n"\
             f"Weight: {self.weight} kg"
+    
+    def xp_stats(self):
+        return f"{self.name} is worth {self.xp} Experience Points, which puts it in the top SOMETHING percentage.\n"
