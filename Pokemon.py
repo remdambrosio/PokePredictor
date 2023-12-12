@@ -19,4 +19,4 @@ class Pokemon:
             f"Weight: {self.weight} kg"
     
     def xp_stats(self):
-        return f"{self.name} is worth {self.xp} Experience Points, which puts it in the top SOMETHING percentage.\n"
+        return f"{self.name} is worth {self.xp} Experience Points, which puts it in the top SOMETHING percentile.\n"
