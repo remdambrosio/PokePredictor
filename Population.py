@@ -3,8 +3,8 @@ import pandas as pd
 
 class Population:
     def __init__(self, file_path: str) -> None:
-        self.file_path: str = file_path
-        self.data: typing.Optional[pd.DataFrame] = None
+        self.file_path = file_path
+        self.data = None
         self.load()
 
     def load(self) -> None:
@@ -15,3 +15,12 @@ class Population:
 
     def print(self) -> None:
         print(self.data.head())
+
+    def get_avg(self, stat: str) -> float:
+        # Determine column name based on input stat
+        if (stat == "height"):
+            col = "Pokemon Height"
+        elif (stat == "weight"):
+            col = "Pokemon Weight"
+        # Return mean of that column
+        return self.data[col].mean()

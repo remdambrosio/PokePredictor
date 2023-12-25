@@ -1,13 +1,13 @@
 import typing
+from Population import Population
 
 class Pokemon:
     def __init__(self, poke_got: typing.Dict[str, typing.Any]):
-        self.name: str = poke_got["name"]
-        self.id: int = poke_got["id"]
-        self.xp: int = poke_got["base_experience"]
-        self.types: typing.List[str] = [typ["type"]["name"] for typ in poke_got["types"]]
-        self.height: float = poke_got["height"] / 10
-        self.weight: float = poke_got["weight"] / 10
+        self.name = poke_got["name"]
+        self.id = poke_got["id"]
+        self.types = [typ["type"]["name"] for typ in poke_got["types"]]
+        self.height = poke_got["height"] / 10
+        self.weight = poke_got["weight"] / 10
     
     def __str__(self) -> str:
         self.name = self.name.title()
@@ -15,10 +15,11 @@ class Pokemon:
 
         return f"Name: {self.name}\n"\
             f"ID: {self.id}\n"\
-            f"XP: {self.xp}\n"\
             f"Types: {', '.join(self.types)}\n"\
             f"Height: {self.height} m\n"\
             f"Weight: {self.weight} kg"
     
-    def xp_stats(self) -> str:
-        return f"{self.name} is worth {self.xp} Experience Points, which puts it in the top SOMETHING percentile.\n"
+    def compare_stat(self, stat: str, pop: Population) -> str:
+        poke_stat = getattr(self, stat)
+        pop_avg = round(pop.get_avg(stat), 1)
+        return f"{self.name}'s {stat} is {poke_stat}, compared to the population's mean {stat} of {pop_avg}.'\n"
