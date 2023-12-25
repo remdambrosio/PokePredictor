@@ -1,13 +1,15 @@
+import typing
+
 class Pokemon:
-    def __init__(self, poke_got):
-        self.name = poke_got["name"]
-        self.id = poke_got["id"]
-        self.xp = poke_got["base_experience"]
-        self.types = [typ["type"]["name"] for typ in poke_got["types"]]
-        self.height = poke_got["height"] / 10
-        self.weight = poke_got["weight"] / 10
+    def __init__(self, poke_got: typing.Dict[str, typing.Any]):
+        self.name: str = poke_got["name"]
+        self.id: int = poke_got["id"]
+        self.xp: int = poke_got["base_experience"]
+        self.types: typing.List[str] = [typ["type"]["name"] for typ in poke_got["types"]]
+        self.height: float = poke_got["height"] / 10
+        self.weight: float = poke_got["weight"] / 10
     
-    def __str__(self):
+    def __str__(self) -> str:
         self.name = self.name.title()
         self.types = [typ.title() for typ in self.types]
 
@@ -18,5 +20,5 @@ class Pokemon:
             f"Height: {self.height} m\n"\
             f"Weight: {self.weight} kg"
     
-    def xp_stats(self):
+    def xp_stats(self) -> str:
         return f"{self.name} is worth {self.xp} Experience Points, which puts it in the top SOMETHING percentile.\n"
