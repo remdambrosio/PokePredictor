@@ -18,8 +18,8 @@ def get_poke(user_poke_name: str) -> Pokemon:
             break
         except requests.exceptions.RequestException as req_ex:
             if poke_request.status_code == 404:  # If a 404 error occurs, that pokemon probably isn't real; ask for pokemon name again
-                print("That's not a real Pokemon. Not yet, anyway.")
-                user_poke = input("Enter the name of a REAL Pokemon: ").lower()
+                print("We can't find a Pokemon with that name.")
+                user_poke = input("Enter the name of a Pokemon: ").lower()
                 poke_url = "https://pokeapi.co/api/v2/pokemon/" + user_poke
                 poke_request = requests.get(poke_url)
             else:
@@ -38,8 +38,9 @@ user_poke: Pokemon = get_poke(user_poke_name)  # Create a corresponding Pokemon 
 
 # Test prints
 
+#pop.print()
+
 print(user_poke)
 print(user_poke.compare_stat("height", pop))
 print(user_poke.compare_stat("weight", pop))
 
-pop.print()

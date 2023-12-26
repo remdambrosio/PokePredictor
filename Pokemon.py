@@ -22,4 +22,4 @@ class Pokemon:
     def compare_stat(self, stat: str, pop: Population) -> str:
         poke_stat = getattr(self, stat)
         pop_avg = round(pop.get_avg(stat), 1)
-        return f"{self.name}'s {stat} is {poke_stat}, compared to the population's mean {stat} of {pop_avg}.'\n"
+        return f"{self.name}'s {stat} is {poke_stat}, compared to the population's mean {stat} of {pop_avg}."
