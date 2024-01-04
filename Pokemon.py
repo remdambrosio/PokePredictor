@@ -33,17 +33,17 @@ class Pokemon:
             elif (poke_stat < pop_avg):
                 s2 = f"That's kinda short!"
             else:
-                s2 = f"It's pretty darn average!"
+                s2 = f"That's pretty darn average!"
             return s1 + s2
         # Generate statement for weight
         elif (stat == "weight"):
             s1 = f"{self.name} weighs {poke_stat} kilograms, compared to the population's mean weight of {pop_avg} kilograms. "
             if (poke_stat > pop_avg):
-                s2 = f"Don't sumo wrestle this Pokemon!"
+                s2 = f"This one's a heavyweight!"
             elif (poke_stat < pop_avg):
-                s2 = f"It's light as a feather!"
+                s2 = f"This one's a lightweight!"
             else:
-                s2 = f"It's pretty darn average!"
+                s2 = f"That's pretty darn average!"
             return s1 + s2
         # Generate statement for invalid stat (debugging)
         else:
