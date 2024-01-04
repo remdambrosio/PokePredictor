@@ -25,7 +25,7 @@ class Pokemon:
         # Get stat for this Pokemon and the population average
         poke_stat = getattr(self, stat)
         pop_avg = round(pop.get_avg(stat), 1)
-        # Generate statement
+        # Generate statement for height
         if (stat == "height"):
             s1 = f"{self.name} is {poke_stat} metres tall, compared to the population's mean height of {pop_avg} metres. "
             if (poke_stat > pop_avg):
@@ -35,6 +35,7 @@ class Pokemon:
             else:
                 s2 = f"It's pretty darn average!"
             return s1 + s2
+        # Generate statement for weight
         elif (stat == "weight"):
             s1 = f"{self.name} weighs {poke_stat} kilograms, compared to the population's mean weight of {pop_avg} kilograms. "
             if (poke_stat > pop_avg):
@@ -44,6 +45,7 @@ class Pokemon:
             else:
                 s2 = f"It's pretty darn average!"
             return s1 + s2
+        # Generate statement for invalid stat (debugging)
         else:
             return f"Error: Invalid stat for comparison."
 
