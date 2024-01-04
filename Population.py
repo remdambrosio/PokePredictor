@@ -17,6 +17,8 @@ class Population:
         print(self.data.head())
 
     def get_avg(self, stat: str) -> float:
+        """Finds the population mean for a given stat
+        """
         # Determine column name based on input stat
         if (stat == "height"):
             col = "Pokemon Height"
