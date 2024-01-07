@@ -1,6 +1,7 @@
 import typing
 import requests
 import pandas as pd
+import matplotlib.pyplot as plt
 from Pokemon import Pokemon
 from Population import Population
 
@@ -38,9 +39,11 @@ user_poke: Pokemon = get_poke(user_poke_name)  # Create a corresponding Pokemon 
 
 # Test prints
 
-#pop.print()
-
 print(user_poke)
 print(user_poke.compare_stat("height", pop))
 print(user_poke.compare_stat("weight", pop))
 
+# Test graphs
+
+pop.plot_dist_marked("height", user_poke.height, user_poke_name)
+pop.plot_dist_marked("weight", user_poke.weight, user_poke_name)
