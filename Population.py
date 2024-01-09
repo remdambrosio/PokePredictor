@@ -20,16 +20,7 @@ class Population:
         """
         print(self.data.head())
 
-    def get_col(self, stat) -> str:
-        """Gets proper column name
-        """
-        if (stat == "height"):
-            col = "Pokemon Height"
-        elif (stat == "weight"):
-            col = "Pokemon Weight"
-        return col
-
-    def get_col_unit(self, stat) -> tuple:
+    def get_col(self, stat) -> tuple:
         """Gets proper column name and appropriate unit
         """
         if (stat == "height"):
@@ -44,7 +35,7 @@ class Population:
         """Finds population mean for a given stat
         """
         # Determine column name based on input stat
-        col = self.get_col(stat)
+        col, _ = self.get_col(stat)
         # Return mean of that column
         return self.data[col].mean()
     
@@ -53,7 +44,7 @@ class Population:
         """
         name = name.capitalize()
         # Determine data to plot based on input stat
-        col, unit = self.get_col_unit(stat)
+        col, unit = self.get_col(stat)
         # Calculate mean and standard deviation
         mean = self.data[col].mean()
         std = self.data[col].std()
