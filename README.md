@@ -17,4 +17,5 @@ For further information on PokeAPI, please check out: pokeapi.co
 **To Do**
 
 -Find and sort more population attributes
+
 -Map attributes to some categorization system (probably Big Five)
