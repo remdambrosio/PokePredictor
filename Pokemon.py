@@ -28,20 +28,20 @@ class Pokemon:
         # Generate statement for height
         if (stat == "height"):
             s1 = f"{self.name} is {poke_stat} metres tall, compared to the population's mean height of {pop_avg} metres. "
-            if (poke_stat > pop_avg):
+            if (poke_stat > pop_avg + pop_avg*0.15):
                 s2 = "That's one tall Pokemon!"
-            elif (poke_stat < pop_avg):
+            elif (poke_stat < pop_avg - pop_avg*0.15):
                 s2 = "That's kinda short!"
             else:
-                s2 = "That's pretty darn average!"
+                s2 = "That's pretty average!"
             return s1 + s2
         # Generate statement for weight
         elif (stat == "weight"):
             s1 = f"{self.name} weighs {poke_stat} kilograms, compared to the population's mean weight of {pop_avg} kilograms. "
-            if (poke_stat > pop_avg):
+            if (poke_stat > pop_avg + pop_avg*0.15):
                 s2 = "This one's a heavyweight!"
-            elif (poke_stat < pop_avg):
+            elif (poke_stat < pop_avg - pop_avg*0.15):
                 s2 = "This one's a lightweight!"
             else:
-                s2 = "That's pretty darn average!"
+                s2 = "That's pretty average!"
             return s1 + s2
