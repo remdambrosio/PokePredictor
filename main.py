@@ -40,8 +40,9 @@ user_poke: Pokemon = get_poke(user_poke_name)  # Create a corresponding Pokemon 
 # Test prints
 
 print(user_poke)
-print(user_poke.compare_stat("height", pop))
-print(user_poke.compare_stat("weight", pop))
+print(user_poke.compare_stat_statement("height", pop))
+print(user_poke.compare_stat_statement("weight", pop))
+print(user_poke.combat_stats)
 
 # Test graphs
 
