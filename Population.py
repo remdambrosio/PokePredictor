@@ -20,43 +20,39 @@ class Population:
         """
         print(self.data.head())
 
-    def get_col(self, stat) -> tuple:
-        """Gets proper column name and appropriate unit
+    def get_unit(self, stat) -> str:
+        """Gets appropriate unit for that stat
         """
         if (stat == "height"):
-            col = "Pokemon Height"
             unit = "metres"
         elif (stat == "weight"):
-            col = "Pokemon Weight"
             unit = "kilograms"
-        return col, unit
+        else:
+            unit = "points"
+        return unit
 
     def get_avg(self, stat: str) -> float:
         """Finds population mean for a given stat
         """
-        # Determine column name based on input stat
-        col, _ = self.get_col(stat)
-        # Return mean of that column
-        return self.data[col].mean()
+        return self.data[stat].mean()
     
     def plot_dist_marked(self, stat: str, marked_val: str, name: str):
         """Plots frequency histogram for a given stat, with a value highlighted
         """
         name = name.capitalize()
-        # Determine data to plot based on input stat
-        col, unit = self.get_col(stat)
+        unit = self.get_unit(stat)
         # Calculate mean and standard deviation
-        mean = self.data[col].mean()
-        std = self.data[col].std()
+        mean = self.data[stat].mean()
+        std = self.data[stat].std()
         # Set visible range for x-axis
         x_max = mean + std
         if (marked_val > x_max):
             x_max = marked_val
         # Plot graph
         plt.xlim(0, x_max)
-        plt.hist(self.data[col], bins=1000)
-        plt.title(f"{col} Distribution (vs. {name})")
-        plt.xlabel(f"{col} ({unit})")
+        plt.hist(self.data[stat], bins=1000)
+        plt.title(f"{stat} Distribution (vs. {name})")
+        plt.xlabel(f"{stat} ({unit})")
         plt.ylabel("Frequency")
         # Mark the given value
         plt.axvline(x=marked_val, color="red", linestyle="-", linewidth=2)

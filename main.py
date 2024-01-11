@@ -4,6 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from Pokemon import Pokemon
 from Population import Population
+from Personality import Personality
 
 
 def get_poke(user_poke_name: str) -> Pokemon:
@@ -36,15 +37,16 @@ pop = Population("Population_Data.csv")
 
 user_poke_name = input("Enter the name of a Pokemon: ").lower()  # Ask for a pokemon name
 user_poke: Pokemon = get_poke(user_poke_name)  # Create a corresponding Pokemon object
+user_personality: Personality(user_poke, pop) # Create a corresponding Personality object
 
 # Test prints
 
 print(user_poke)
-print(user_poke.compare_stat_statement("height", pop))
-print(user_poke.compare_stat_statement("weight", pop))
-print(user_poke.combat_stats)
+print(user_poke.compare_stat_statement("Pokemon Height", pop))
+print(user_poke.compare_stat_statement("Pokemon Weight", pop))
+#print(user_poke.combat_stats)
 
 # Test graphs
 
-pop.plot_dist_marked("height", user_poke.height, user_poke_name)
-pop.plot_dist_marked("weight", user_poke.weight, user_poke_name)
+pop.plot_dist_marked("Pokemon Height", user_poke.height, user_poke_name)
+pop.plot_dist_marked("Pokemon Weight", user_poke.weight, user_poke_name)
