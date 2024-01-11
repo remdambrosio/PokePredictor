@@ -41,19 +41,13 @@ class Population:
         """
         name = name.capitalize()
         unit = self.get_unit(stat)
-        # Calculate mean and standard deviation
-        mean = self.data[stat].mean()
-        std = self.data[stat].std()
         # Set visible range for x-axis
-        x_max = mean + std
-        if (marked_val > x_max):
-            x_max = marked_val
+        plt.xlim(0, self.data[stat].max())
         # Plot graph
-        plt.xlim(0, x_max)
         plt.hist(self.data[stat], bins=1000)
-        plt.title(f"{stat} Distribution (vs. {name})")
+        plt.title(f"{stat} Distribution ({name} Marked)")
         plt.xlabel(f"{stat} ({unit})")
         plt.ylabel("Frequency")
         # Mark the given value
-        plt.axvline(x=marked_val, color="red", linestyle="-", linewidth=2)
+        plt.axvline(x=marked_val, color="red", linestyle="--", linewidth=2)
         plt.show()

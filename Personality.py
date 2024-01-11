@@ -3,6 +3,7 @@ from Pokemon import Pokemon
 
 class Personality:
     def __init__(self, user_poke: Pokemon, pop: Population):
+        self.name = user_poke.name
         self.ope = self.set_trait("Defense Stat", user_poke, pop)               #openness: +phys def; flexible vs. rigid
         self.con = self.set_trait("Special Attack Stat", user_poke, pop)        #conscientiousness: +sp atk; strategic vs. carefree
         self.ext = self.set_trait("Attack Stat", user_poke, pop)                #extroversion: +phys atk; bombastic vs. peaceful
@@ -13,3 +14,5 @@ class Personality:
         """Sets trait to -1 if associated stat is much lower than mean; 0 if +/- 15% of mean; 1 if much higher than mean
         """
         return user_poke.compare_stat(stat, pop)
+    
+    
