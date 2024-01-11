@@ -23,9 +23,9 @@ class Population:
     def get_unit(self, stat) -> str:
         """Gets appropriate unit for that stat
         """
-        if (stat == "height"):
+        if stat == "height":
             unit = "metres"
-        elif (stat == "weight"):
+        elif stat == "weight":
             unit = "kilograms"
         else:
             unit = "points"
