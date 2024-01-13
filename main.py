@@ -1,7 +1,3 @@
-import typing
-import requests
-import pandas as pd
-import matplotlib.pyplot as plt
 from Pokemon import Pokemon
 from Population import Population
 from Personality import Personality

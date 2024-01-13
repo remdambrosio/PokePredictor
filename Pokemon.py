@@ -50,26 +50,26 @@ class Pokemon:
     def compare_stat(self, stat: str, pop: Population) -> int:
         """Returns -1 if Pokemon's stat is much lower than mean; 0 if +/- 15% of mean; 1 if much higher than mean
         """
-        if (stat == "Pokemon Height"):
+        if stat == "Pokemon Height":
             poke_stat = self.height
-        elif (stat == "Pokemon Weight"):
+        elif stat == "Pokemon Weight":
             poke_stat = self.weight
-        elif (stat == "Health Stat"):
+        elif stat == "Health Stat":
             poke_stat = self.combat_stats[0][1]
-        elif (stat == "Attack Stat"):
+        elif stat == "Attack Stat":
             poke_stat = self.combat_stats[1][1]
-        elif (stat == "Defense Stat"):
+        elif stat == "Defense Stat":
             poke_stat = self.combat_stats[2][1]
-        elif (stat == "Special Attack Stat"):
+        elif stat == "Special Attack Stat":
             poke_stat = self.combat_stats[3][1]
-        elif (stat == "Special Defense Stat"):
+        elif stat == "Special Defense Stat":
             poke_stat = self.combat_stats[4][1]
-        elif (stat == "Speed Stat"):
+        elif stat == "Speed Stat":
             poke_stat = self.combat_stats[5][1]
         pop_avg = round(pop.get_avg(stat), 1)
-        if (poke_stat < pop_avg - pop_avg*0.15):
+        if poke_stat < pop_avg - pop_avg*0.15:
             return -1
-        elif (poke_stat > pop_avg + pop_avg*0.15):
+        elif poke_stat > pop_avg + pop_avg*0.15:
             return 1
         else:
             return 0
@@ -80,21 +80,21 @@ class Pokemon:
         pop_avg = round(pop.get_avg(stat), 1)
         compare = self.compare_stat(stat, pop)
         # Generate statement for height
-        if (stat == "Pokemon Height"):
+        if stat == "Pokemon Height":
             s1 = f"{self.name} is {self.height} metres tall, compared to the population's mean height of {pop_avg} metres. "
-            if (compare == 1):
+            if compare == 1:
                 s2 = "That's one tall Pokemon!"
-            elif (compare == -1):
+            elif compare == -1:
                 s2 = "That's kinda short!"
             else:
                 s2 = "That's pretty average!"
             return s1 + s2
         # Generate statement for weight
-        elif (stat == "Pokemon Weight"):
+        elif stat == "Pokemon Weight":
             s1 = f"{self.name} weighs {self.weight} kilograms, compared to the population's mean weight of {pop_avg} kilograms. "
-            if (compare == 1):
+            if compare == 1:
                 s2 = "This one's a heavyweight!"
-            elif (compare == -1):
+            elif compare == -1:
                 s2 = "This one's a lightweight!"
             else:
                 s2 = "That's pretty average!"
