@@ -21,6 +21,6 @@ print(user_poke.combat_stats)
 
 # Test graphs
 
-pop.plot_dist_marked("Pokemon Height", user_poke.height, user_poke.name)
-pop.plot_dist_marked("Pokemon Weight", user_poke.weight, user_poke.name)
-pop.plot_dist_marked("Attack Stat", user_poke.combat_stats[1][1], user_poke.name)
+#pop.plot_dist_marked("Pokemon Height", user_poke.height, user_poke.name)
+#pop.plot_dist_marked("Pokemon Weight", user_poke.weight, user_poke.name)
+#pop.plot_dist_marked("Attack Stat", user_poke.combat_stats[1][1], user_poke.name)
