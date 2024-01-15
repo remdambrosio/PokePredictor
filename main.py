@@ -38,8 +38,11 @@ user_personality = Personality(user_poke, pop)       # Create a corresponding Pe
 
 # Test prints
 
+print("========================================")
 print(user_poke)
+print("========================================")
 print(user_personality)
+print("========================================")
 
 #print(user_poke.compare_stat_statement("Pokemon Height", pop))
 #print(user_poke.compare_stat_statement("Pokemon Weight", pop))
