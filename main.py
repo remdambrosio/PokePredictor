@@ -34,16 +34,15 @@ user_poke = get_poke()                              # Create a Pokemon object fr
 
 pop = Population("Population_Data.csv")             # Create a Population object from .csv file
 
-user_personality: Personality(user_poke, pop)       # Create a corresponding Personality object
+user_personality = Personality(user_poke, pop)       # Create a corresponding Personality object
 
 # Test prints
 
 print(user_poke)
-print(user_poke.compare_stat_statement("Pokemon Height", pop))
-print(user_poke.compare_stat_statement("Pokemon Weight", pop))
-print(user_poke.combat_stats)
+print(user_personality)
 
-# Test graphs
+#print(user_poke.compare_stat_statement("Pokemon Height", pop))
+#print(user_poke.compare_stat_statement("Pokemon Weight", pop))
 
 #pop.plot_dist_marked("Pokemon Height", user_poke.height, user_poke.name)
 #pop.plot_dist_marked("Pokemon Weight", user_poke.weight, user_poke.name)

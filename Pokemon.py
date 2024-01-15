@@ -18,7 +18,6 @@ class Pokemon:
     def __str__(self) -> str:
         self.name = self.name.title()
         self.types = [typ.title() for typ in self.types]
-
         return f"Name: {self.name}\n"\
             f"ID: {self.id}\n"\
             f"Types: {', '.join(self.types)}\n"\
