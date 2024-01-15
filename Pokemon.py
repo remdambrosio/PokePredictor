@@ -1,29 +1,7 @@
-import typing
-import requests
 from Population import Population
 
 class Pokemon:
-    def __init__(self):
-        # Ask for user-input name, then use PokeAPI to get data
-        poke_name = input("Enter the name of a Pokemon: ").lower()
-        poke_url = "https://pokeapi.co/api/v2/pokemon/" + poke_name  # Use input to define appropriate URL
-        poke_request: requests.Response = requests.get(poke_url)  # Set up request
-        poke_got: typing.Union[str, dict] = "0"  # Give request a placeholder value
-        # Try to get .json for that pokemon name
-        # If a 404 error occurs, that pokemon probably isn't real; ask for pokemon name again
-        while poke_got == "0":
-            try:
-                poke_request.raise_for_status()
-                poke_got = poke_request.json()
-                break
-            except requests.exceptions.RequestException as req_ex:
-                if poke_request.status_code == 404:  
-                    print("We can't find a Pokemon with that name.")
-                    poke_name = input("Enter the name of a Pokemon: ").lower()
-                    poke_url = "https://pokeapi.co/api/v2/pokemon/" + poke_name
-                    poke_request = requests.get(poke_url)
-                else:
-                    quit()
+    def __init__(self, poke_got):
         # Assign basic stats based on PokeAPI data
         self.name = poke_got["name"]
         self.id = poke_got["id"]
