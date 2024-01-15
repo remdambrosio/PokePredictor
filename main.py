@@ -30,11 +30,11 @@ def get_poke() -> Pokemon:
 
 # Establish Pokemon, Population, Personality
 
-user_poke = get_poke()                              # Create a Pokemon object from user-input name
+user_poke = get_poke()                                 # Create a Pokemon object from user-input name
 
-pop = Population("Population_Data.csv")             # Create a Population object from .csv file
+pop = Population("Population_Data.csv")                # Create a Population object from .csv file
 
-user_personality = Personality(user_poke, pop)       # Create a corresponding Personality object
+user_personality = Personality(user_poke, pop)         # Create a corresponding Personality object
 
 # Test prints
 
