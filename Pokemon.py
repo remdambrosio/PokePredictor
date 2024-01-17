@@ -52,13 +52,13 @@ class Pokemon:
             return 0
 
     def compare_stat_statement(self, stat: str, pop: Population) -> str:
-        """Generates a statement comparing one of this Pokemon's stats to the population mean
+        """Generates a statement comparing one of this Pokemon's stats to the population median
         """
         pop_avg = round(pop.get_avg(stat), 1)
         compare = self.compare_stat(stat, pop)
         # Generate statement for height
         if stat == "Pokemon Height":
-            s1 = f"{self.name} is {self.height} metres tall, compared to the population's mean height of {pop_avg} metres. "
+            s1 = f"{self.name} is {self.height} metres tall, compared to the population's median height of {pop_avg} metres. "
             if compare == 1:
                 s2 = "That's one tall Pokemon!"
             elif compare == -1:
@@ -68,7 +68,7 @@ class Pokemon:
             return s1 + s2
         # Generate statement for weight
         elif stat == "Pokemon Weight":
-            s1 = f"{self.name} weighs {self.weight} kilograms, compared to the population's mean weight of {pop_avg} kilograms. "
+            s1 = f"{self.name} weighs {self.weight} kilograms, compared to the population's median weight of {pop_avg} kilograms. "
             if compare == 1:
                 s2 = "This one's a heavyweight!"
             elif compare == -1:
@@ -77,4 +77,4 @@ class Pokemon:
                 s2 = "That's pretty average!"
             return s1 + s2
         else:
-            return "ERROR: Invalid stat for comparison via compare_stat_statement"
+            return "ERROR: Invalid stat for comparison using Pokemon class's compare_stat_statement method."

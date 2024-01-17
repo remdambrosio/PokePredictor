@@ -32,9 +32,9 @@ class Population:
         return unit
 
     def get_avg(self, stat: str) -> float:
-        """Finds population mean for a given stat
+        """Finds population median for a given stat
         """
-        return self.data[stat].mean()
+        return self.data[stat].median()
     
     def plot_dist_marked(self, stat: str, marked_val: str, name: str):
         """Plots frequency histogram for a given stat, with a value highlighted
