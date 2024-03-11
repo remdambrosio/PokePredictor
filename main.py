@@ -1,5 +1,6 @@
 import typing
 import requests
+import multiprocessing
 from Pokemon import Pokemon
 from Population import Population
 from Personality import Personality
@@ -32,23 +33,34 @@ def get_poke() -> Pokemon:
     return Pokemon(poke_got)  # Return a Pokemon object
 
 
+def output_prints(user_poke, pop, user_personality):
+    """Prepares and prints output statements
+    """
+    print("========================================")
+    print(user_poke)
+    print("========================================")
+    print(user_personality)
+    print("========================================")
+    print(user_poke.compare_stat_statement("Pokemon Height", pop))
+    print("========================================")
+    print(user_poke.compare_stat_statement("Pokemon Weight", pop))
+
+def output_plots(user_poke, pop):
+    """Prepares and displays output plots
+    """
+    pop.plot_dist_marked("Pokemon Height", user_poke.height, user_poke.name)
+    pop.plot_dist_marked("Pokemon Weight", user_poke.weight, user_poke.name)
+
+
 if __name__ == "__main__":
     pop = Population("Population_Data.csv")                    # Create a Population object from CSV
     while True:
         user_poke = get_poke()                                 # Create a Pokemon object from user-input name
         user_personality = Personality(user_poke, pop)         # Create a corresponding Personality object
-
-        # Test prints
-
-        print("========================================")
-        print(user_poke)
-        print("========================================")
-        print(user_personality)
-        print("========================================")
-
-        #print(user_poke.compare_stat_statement("Pokemon Height", pop))
-        #print(user_poke.compare_stat_statement("Pokemon Weight", pop))
-
-        #pop.plot_dist_marked("Pokemon Height", user_poke.height, user_poke.name)
-        #pop.plot_dist_marked("Pokemon Weight", user_poke.weight, user_poke.name)
-        #pop.plot_dist_marked("Attack Stat", user_poke.combat_stats[1][1], user_poke.name)
+        # Some multiprocessing, just for fun
+        print_process = multiprocessing.Process(target=output_prints, args=(user_poke, pop, user_personality))
+        plot_process = multiprocessing.Process(target=output_plots, args=(user_poke, pop))
+        print_process.start()
+        plot_process.start()
+        print_process.join()
+        plot_process.join()
