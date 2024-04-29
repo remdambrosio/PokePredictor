@@ -9,7 +9,7 @@ from Personality import Personality
 def get_poke() -> Pokemon:
     """Takes the user-entered pokemon name and creates a corresponding Pokemon object
     """
-    user_poke_name = input("Enter the name of a Pokemon, or 'quit' when you're done: ").lower()  # Ask for a pokemon name
+    user_poke_name = input("Enter name of Pokemon, or 'quit' when you're done: ").lower()  # Ask for a pokemon name
     if user_poke_name == "quit":
         quit()
     poke_url = "https://pokeapi.co/api/v2/pokemon/" + user_poke_name  # Use input to define appropriate URL
